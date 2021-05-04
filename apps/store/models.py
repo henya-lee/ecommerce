@@ -2,6 +2,7 @@ from io import BytesIO
 from django.core.files import File
 from django.db import models
 from PIL import Image
+from django.utils import timezone
 
 # Create your models here.
 class Category(models.Model):
@@ -25,7 +26,7 @@ class Product(models.Model):
 
     image = models.ImageField(upload_to='media/uploads', blank=True, null=True)
     thumbnail = models.ImageField(upload_to='media/uploads', blank=True, null=True)
-    date_added = models.DateTimeField(auto_now_add=True)
+    date_added = models.DateTimeField(default=timezone.now)   # editable=False
 
     class Meta:
         ordering = ('-date_added',)
