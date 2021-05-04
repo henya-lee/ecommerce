@@ -9,6 +9,10 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+STRIPE_API_KEY_PUBLISHABLE = 'pk_test_51InOBZKD2ktSAM7C6yn3aPCKOKxVTZprPs2DtBelV8dACt3wOVRPVYQZQI5Pcw6VvdPpiyKsyS4erBXXKsjU0G7200hSZnbOPT'
+STRIPE_API_KEY_HIDDEN = 'sk_test_51InOBZKD2ktSAM7CbCykx8dunBwOXlManoKasDjIDBGbtBTfnlkg9SECUC0uxa2mZYGy7qRadQBNKglyiOZF3A6900ceWlovmU'
+
+import os
 
 from pathlib import Path
 
@@ -44,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.cart',
     'apps.core',
+    'apps.order',
     'apps.store',
 ]
 
@@ -71,6 +76,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'apps.store.context_processors.menu_categories',
+                'apps.cart.context_processors.cart'
             ],
         },
     },
@@ -134,6 +140,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
