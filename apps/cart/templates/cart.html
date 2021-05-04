@@ -1,24 +1,28 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ product.title}} | {% endblock %}
+{% block title %}Cart | {% endblock %}
 
 {% block content %}
-    <div id="productapp">
-        <h1 class="title">{{ product.title }}</h1>
-        <h2 class="subtitle">{{ product.price }}</h2>
+    <div id="cartapp">
+        <h1 class="title">Cart</h1>
 
-        {% if product.description %}
-            <p>{{ product.description }}</p>
+        {% if cart %}
+            {% for item in cart %}
+                {% with product=item.product %}
+                    <p>{{product.title }}</p>
+                    <button @click="removeFromCart({{ product.id }})">Remove from cart</button>
+                {% endwith %}
+            {% endfor %}
+        {% else %}
+             <p>Your cart is empty!</p>
         {% endif %}
-
-        <button @click="addToCart({{ product.id }})">Add to cart</button>
     </div>
 {% endblock %}
 
 {% block scripts %}
 <script>
     var productapp = new Vue({
-        el: '#productapp',
+        el: '#cartapp',
         delimeters: ['[[',']]'],
         data () {
             return {
@@ -29,16 +33,14 @@
             console.log('Mounted');
         },
         methods: {
-            addToCart(product_id) {
+            removeFromCart(product_id) {
                 console.log('Product_id:', product_id);
 
                 var data = {
-                    'product_id': product_id,
-                    'update': false,
-                    'quantity': 1
+                    'product_id': product_id
                 };
 
-                fetch('/api/add_to_cart/', {
+                fetch('/api/remove_from_cart/', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -56,6 +58,5 @@
             }
         }
     });
-
 </script>
 {% endblock %}

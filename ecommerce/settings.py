@@ -27,6 +27,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Cart
+
+SESSION_COOKIE_AGE = 86400
+CART_SESSION_ID ='cart'
+
 
 # Application definition
 
@@ -37,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'apps.cart',
     'apps.core',
     'apps.store',
 ]
