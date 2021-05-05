@@ -50,7 +50,16 @@ INSTALLED_APPS = [
     'apps.core',
     'apps.order',
     'apps.store',
+    'cloudinary',
 ]
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'henyastore',
+    'API_KEY': '632273818558568',
+    'API_SECRET': 'UxH3FLOpaiT0KBtEGI808MZ5adg',
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
