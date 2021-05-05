@@ -56,7 +56,7 @@ INSTALLED_APPS = [
 ]
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'henyastore',
+    'CLOUD_NAME': 'htkomnltl',
     'API_KEY': '632273818558568',
     'API_SECRET': 'UxH3FLOpaiT0KBtEGI808MZ5adg',
 }
