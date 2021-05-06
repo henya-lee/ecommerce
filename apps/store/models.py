@@ -24,8 +24,8 @@ class Product(models.Model):
     price = models.FloatField()
     is_featured = models.BooleanField(default=False)
 
-    image = models.ImageField(upload_to='media/uploads', blank=True, null=True)
-    thumbnail = models.ImageField(upload_to='media/uploads', blank=True, null=True)
+    image = models.ImageField(upload_to='uploads/', blank=True, null=True)
+    thumbnail = models.ImageField(upload_to='uploads/', blank=True, null=True)
     date_added = models.DateTimeField(default=timezone.now)   # editable=False
 
     class Meta:
@@ -35,7 +35,7 @@ class Product(models.Model):
         return self.title
 
     def save(self, *args, **kwargs):
-        # print('Save', self.image.path)
+        print('Save', self.image.name)
         self.thumbnail = self.make_thumbnail(self.image)
 
         super().save(*args, **kwargs)

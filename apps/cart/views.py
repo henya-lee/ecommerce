@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.conf import settings
+from django.shortcuts import render, redirect
 
 from .cart import Cart
 
 # Create your views here.
-def cart_detail (request):
+def cart_detail(request):
     cart = Cart(request)
     productsstring = ''
 
@@ -16,6 +17,12 @@ def cart_detail (request):
 
     context = {
         'cart': cart,
-        'productsstring': productsstring
+        # 'pub_key': settings.STRIPE_API_KEY_PUBLISHABLE,
+        'productsstring': productsstring.rstrip(',')
     }
     return render(request, 'cart.html', context)
+
+def success(request):
+    cart = Cart(request)
+    cart.clear()
+    return render(request, 'success.html')

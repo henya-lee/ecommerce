@@ -9,8 +9,8 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-STRIPE_API_KEY_PUBLISHABLE = 'pk_test_51InOBZKD2ktSAM7C6yn3aPCKOKxVTZprPs2DtBelV8dACt3wOVRPVYQZQI5Pcw6VvdPpiyKsyS4erBXXKsjU0G7200hSZnbOPT'
-STRIPE_API_KEY_HIDDEN = 'sk_test_51InOBZKD2ktSAM7CbCykx8dunBwOXlManoKasDjIDBGbtBTfnlkg9SECUC0uxa2mZYGy7qRadQBNKglyiOZF3A6900ceWlovmU'
+# STRIPE_API_KEY_PUBLISHABLE = 'pk_test_51InOBZKD2ktSAM7C6yn3aPCKOKxVTZprPs2DtBelV8dACt3wOVRPVYQZQI5Pcw6VvdPpiyKsyS4erBXXKsjU0G7200hSZnbOPT'
+# STRIPE_API_KEY_HIDDEN = 'sk_test_51InOBZKD2ktSAM7CbCykx8dunBwOXlManoKasDjIDBGbtBTfnlkg9SECUC0uxa2mZYGy7qRadQBNKglyiOZF3A6900ceWlovmU'
 
 import os
 
@@ -56,9 +56,9 @@ INSTALLED_APPS = [
 ]
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'henyastore',
-    'API_KEY': '632273818558568',
-    'API_SECRET': 'UxH3FLOpaiT0KBtEGI808MZ5adg',
+    'CLOUD_NAME': 'htkomnltl',
+    'API_KEY': '342218512827977',
+    'API_SECRET': 'h2ZxYGgOAOzecq9kq9gkqOPMs7E',
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
