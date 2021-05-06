@@ -27,7 +27,7 @@ class OrderAdmin(admin.ModelAdmin):
     list_filter = ['created_at']  #, status
     search_fields = ['first_name', ' address']
     inlines = [OrderItemInline]
-    # actions = [admin_order_shipped]    (原本只有delete功能)
+    # actions = [admin_order_shipped]    (only delete function originally)
 
 admin.site.register(Order, OrderAdmin)
 admin.site.register(OrderItem)

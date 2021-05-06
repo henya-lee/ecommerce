@@ -9,7 +9,9 @@
                 <div class="card">
                     <div class="card-image">
                         <figure class="image">
-                            <img src="{{ product.thumbnail.url }}">
+                            {% if product.image %}
+                                <img src="{{ product.image.url }}">
+                            {% endif %}
                         </figure>
                     </div>
                     <div class="card-content">

@@ -56,9 +56,9 @@ INSTALLED_APPS = [
 ]
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'htkomnltl',
-    'API_KEY': '342218512827977',
-    'API_SECRET': 'h2ZxYGgOAOzecq9kq9gkqOPMs7E',
+    'CLOUD_NAME': 'henyastore',
+    'API_KEY': '632273818558568',
+    'API_SECRET': 'UxH3FLOpaiT0KBtEGI808MZ5adg',
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
@@ -154,8 +154,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
