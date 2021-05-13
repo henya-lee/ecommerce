@@ -16,6 +16,9 @@ class Category(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return '/%s/' % (self.slug)
+
 class Product(models.Model):
     category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)  #can get all the products when inside the category #and when delete category, also delete the product
     title = models.CharField(max_length=255)
@@ -40,6 +43,9 @@ class Product(models.Model):
 
         super().save(*args, **kwargs)
 
+    def get_absolute_url(self):
+        return '/%s/%s/' % (self.category.slug, self.slug)
+
     def make_thumbnail(self, image, size=(300, 200)):
         img = Image.open(image)
         img.convert('RGB')
@@ -51,3 +57,14 @@ class Product(models.Model):
         thumbnail = File(thumb_io, name=image.name)
 
         return thumbnail
+
+# class ProductImage(models.Model):   #  part13
+#     product = models.ForeignKey(Product, related_name='images', on_delete=models.CASCADE)
+#
+#     image = models.ImageField(blank=True, null=True)
+#
+#     def save(self, *args, **kwargs):
+#         print('Save', self.image.name)
+#         # self.thumbnail = self.make_thumbnail(self.image)
+#
+#         super().save(*args, **kwargs)

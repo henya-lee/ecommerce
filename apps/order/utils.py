@@ -11,6 +11,9 @@ def checkout(request, first_name, last_name, email, address, zipcode, place):
     order = Order(first_name=first_name, last_name=last_name, email=email, address=address, zipcode=zipcode, place=place)
     order.save()
 
+    if request.user.is_authenticated:
+        order.user = request.user
+
     cart = Cart(request)
 
     for item in cart:

@@ -31,6 +31,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'cart'
+LOGOUT_REDIRECT_URL = 'frontpage'
+
 # Cart
 
 SESSION_COOKIE_AGE = 86400
@@ -45,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sitemaps',
     'django.contrib.staticfiles',
     'cloudinary_storage',
     'cloudinary',
@@ -53,6 +58,7 @@ INSTALLED_APPS = [
     'apps.core',
     'apps.order',
     'apps.store',
+    'apps.userprofile',
 ]
 
 CLOUDINARY_STORAGE = {
