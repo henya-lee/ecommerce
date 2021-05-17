@@ -15,7 +15,7 @@ order_name.short_description = 'Name'
 #         order.shipped_date = datetime.datetime.now()
 #         order.status = Order.SHIPPED
 #         order.save()
-#         return
+#     return
 # admin_order_shipped.short_description = 'Set shipped'
 
 class OrderItemInline(admin.TabularInline):
@@ -27,7 +27,7 @@ class OrderAdmin(admin.ModelAdmin):
     list_filter = ['created_at']  #, status
     search_fields = ['first_name', ' address']
     inlines = [OrderItemInline]
-    # actions = [admin_order_shipped]    (only delete function originally)
+    # actions = [admin_order_shipped]    # (only delete function originally)
 
 admin.site.register(Order, OrderAdmin)
 admin.site.register(OrderItem)

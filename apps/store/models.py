@@ -3,6 +3,7 @@ from django.core.files import File
 from django.db import models
 from PIL import Image
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Category(models.Model):
@@ -58,6 +59,14 @@ class Product(models.Model):
 
         return thumbnail
 
+    def get_rating(self):
+        total = sum(int(review['stars']) for review in self.reviews.values())
+
+        if self.reviews.count() > 0:
+            return total / self.reviews.count()
+        else:
+            return 0
+
 # class ProductImage(models.Model):   #  part13
 #     product = models.ForeignKey(Product, related_name='images', on_delete=models.CASCADE)
 #
@@ -68,3 +77,11 @@ class Product(models.Model):
 #         # self.thumbnail = self.make_thumbnail(self.image)
 #
 #         super().save(*args, **kwargs)
+
+class ProductReview(models.Model):
+    product = models.ForeignKey(Product, related_name='reviews', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name='reviews', on_delete=models.CASCADE)
+
+    content = models.TextField(blank=True, null=True)
+    stars = models.IntegerField()
+    date_added = models.DateTimeField(auto_now_add=True)
